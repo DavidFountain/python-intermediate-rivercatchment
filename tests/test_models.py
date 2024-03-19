@@ -215,4 +215,5 @@ def test_normalise(test_data, test_index, test_columns, expected_data,
 def test_numpy_normalise(test, expected):
     """Test normalisation works for numpy arrays"""
     from catchment.models import data_normalise
-    npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected), decimal=2)
+    npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected),
+                            decimal=2)
