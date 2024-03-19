@@ -2,6 +2,8 @@
 
 import pandas as pd
 import pandas.testing as pdt
+import numpy.testing as npt
+import numpy as np
 import datetime
 import pytest
 
@@ -200,3 +202,17 @@ def test_normalise(test_data, test_index, test_columns, expected_data,
                                     columns=test_columns)),
         pd.DataFrame(data=expected_data, index=expected_index,
                      columns=expected_columns), atol=1e-2)
+
+
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        (
+            [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+            [[0.14, 0.25, 0.33], [0.57, 0.63, 0.66], [1.0, 1.0, 1.0]]
+        )
+    ])
+def test_numpy_normalise(test, expected):
+    """Test normalisation works for numpy arrays"""
+    from catchment.models import data_normalise
+    npt.assert_almost_equal(data_normalise(np.array(test)), np.array(expected), decimal=2)
