@@ -8,6 +8,7 @@ time across all sites.
 """
 
 import pandas as pd
+import numpy as np
 
 
 def read_variable_from_csv(filename):
@@ -70,10 +71,20 @@ def daily_max(data):
 def daily_min(data):
     """Calculate the daily min of a 2D data array.
     Index must be np.datetime64 compatible format.
-    
+  
     :params:
         data: 2D array
     :returns: min date
     """
     return data.groupby(data.index.date).min()
 
+
+def data_normalise(data):
+    """Normalise any given 2D data array
+    
+    :params:
+        data: 2D array
+    :returns: normalised data
+    """
+    normal_max = np.array(np.max(data, axis=0))
+    return data / normal_max[np.newaxis, :]
