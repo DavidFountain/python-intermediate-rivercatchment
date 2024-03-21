@@ -4,7 +4,7 @@
 RiverCatch is a data management system written in Python that manages measurement data collected in river catchment surveys and campaigns.
 
 ## Main features
-Here are some key features of Inflam:
+Here are some key features of RiverCatch:
 
 - Provide basic statistical analyses of data
 - Ability to work on measurement data in Comma-Separated Value (CSV) format
