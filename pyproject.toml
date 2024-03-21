@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "python-intermediate-rivercatchment"
+version = "1.0.0"
+description = "Analyse river catchment project data"
+authors = ["David Fountain"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
